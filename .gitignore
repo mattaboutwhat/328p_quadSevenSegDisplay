@@ -229,3 +229,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+328p_quadSevenSegDisplay/328p_quadSevenSegDisplay_v2.c
+328p_quadSevenSegDisplay.atsuo
+328p_quadSevenSegDisplay/328p_quadSevenSegDisplay.cproj
