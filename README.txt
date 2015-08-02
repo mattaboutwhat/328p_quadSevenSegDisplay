@@ -19,6 +19,11 @@ NOTES
 	. The files were made in Atmel Studio, and may need other #include directives 
 	  to work on other IDEs. 
 
+	. Characters that can be displayed:
+		0-9 
+		A,b,c,d,E,F,g,H,I,J,L,n,O,P,r,S,t,U,u,y 
+		=, ,_,-
+
 WIRING
 	 
   Seven Seg: 						328p Pins:

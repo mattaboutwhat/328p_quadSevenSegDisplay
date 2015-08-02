@@ -39,14 +39,16 @@ ISR(TIMER1_COMPA_vect)
 
 	if (display_length < 4) {			// If the current string is
 		switch(display_length) {		// less than 4 characters,
-			case 1:						// we should pad it with 
-			display[1] = ' ';			// spaces.
+			case 0:						// we should pad it with 
+				display[0] = ' ';		// spaces.
+			case 1:
+				display[1] = ' ';
 			case 2:
-			display[2] = ' ';
+				display[2] = ' ';
 			case 3:
-			display[3] = ' ';
+				display[3] = ' ';
 			break;
-		}
+		} 
 	}
 										//if display_length=4, no shifting occurs
 	else if (display_length > 4) {
@@ -265,7 +267,7 @@ void setDisplay(uint8_t dig)
 			PORTD &= 0x5F;
 			PORTD |= 0x40;
 			break;
-		case 'G': //G
+		case 'G': //g
 		case 'g':
 			PORTB &= 0xF7; 
 			PORTB |= 0x85; 
@@ -278,12 +280,25 @@ void setDisplay(uint8_t dig)
 			PORTD &= 0xDF;
 			PORTD |= 0xC0;
 			break;
+		case 'J':
+		case 'j':
+			PORTB &= 0x7F;
+			PORTB |= 0x0D;
+			PORTD &= 0xBF;
+			PORTD |= 0xA0;
+			break;
 		case 'L':	//upper-case L
 		case 'l':
 			PORTB &= 0x7A;
 			PORTB |= 0x08;
 			PORTD &= 0x7F;
 			PORTD |= 0x60;
+			break;
+		case 'N':
+		case 'n':
+			PORTB &= 0xFE;
+			PORTB |= 0x8C;
+			PORTD &= 0x1F;
 			break;
 		case 'P':	//upper-case p
 		case 'p':
@@ -336,6 +351,11 @@ void setDisplay(uint8_t dig)
 			PORTB &= 0x72;
 			PORTD &= 0x3F;
 			PORTD |= 0x20;
+			break;
+		case '-':	//dash
+			PORTB &= 0x72;
+			PORTB |= 0x80;
+			PORTD &= 0x1F;
 			break;
 		default:	//space
 			PORTB &= 0x72;
